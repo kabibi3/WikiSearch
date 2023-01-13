@@ -1,11 +1,8 @@
 .search input {
-    text-transform: lowercase;
+    text-transform: capitalize;
     font-style: inherit;
     width:10em;
     padding: 0.2rem;
     font-size: x-large;
 }
 
-.search input:first-letter {
-    text-transform: capitalize;
-}

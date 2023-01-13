@@ -1,17 +1,22 @@
 import { BaseSyntheticEvent, useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import Input from './components/Input/Input'
+import SearchForm from './components/SearchForm/SearchForm'
+import LineChart from './components/TimeSeries/TimeSeries'
+export type timeSeriesData = {
+  value: number;
+  time: Date;
+}
 
 function App() {
   
 
 
+
   return (
     <div className="App">
-      <Input/>
-      
-
+      <SearchForm/>
+      <LineChart/>
 
     </div>
   )
