@@ -3,22 +3,25 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import SearchForm from './components/SearchForm/SearchForm'
 import LineChart from './components/TimeSeries/TimeSeries'
+import TimeSeriesStoreProvider, { TimeSeriesStore } from './store/TimeSeriesStore'
+import TimeSeries from './components/TimeSeries/TimeSeries'
+
 export type timeSeriesData = {
   value: number;
   time: Date;
 }
 
-function App() {
+const App = (props:any) => {
   
 
 
 
   return (
-    <div className="App">
+    <TimeSeriesStoreProvider>
       <SearchForm/>
-      <LineChart/>
+      <TimeSeries/>
 
-    </div>
+    </TimeSeriesStoreProvider>
   )
 }
 

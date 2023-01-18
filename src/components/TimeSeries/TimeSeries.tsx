@@ -1,22 +1,25 @@
-import React from "react";
-import Plotly from "plotly.js";
-import createPlotlyComponent from "react-plotly.js/factory";
+import React, { useContext } from "react";
 import Plot from "react-plotly.js";
+import { overallDataType, TimeSeriesStore } from "../../store/TimeSeriesStore";
 
-export default function LineChart() {
-  const data = [
-    {
-      x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      y: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      mode: "lines",
-    },
-  ];
-  const layout = { title: "Time Series" };
 
-  return <Plot data={data} layout={layout} />;
+const TimeSeries = (props:any) => {
+    const ctx = useContext(TimeSeriesStore) as overallDataType;
+    const x = ctx?.data.map(({time}) => time)
+    const y = ctx?.data.map(({value}) => value)
+
+    const data = [
+        {
+          x: x,
+          y: y,
+          mode: "scatter",
+        },
+      ];
+      const layout = { title: "Time Series" };
+
+return <Plot data={data} layout={layout} />
+
+
 }
-// const TimeSeries = (props:any) => {
-    
-// }
 
-// export default TimeSeries
+export default TimeSeries
